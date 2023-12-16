@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  .login-page {
+    font-family: sans-serif;
+    background: white;
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    padding: 50px;
+    transform: translate(-50%, -50%);
+    background: rgb(37, 36, 36);
+    border-radius: 10px;
+}
+
+.heading-login-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.user-box {
+    position: relative;
+}
+
+.user-box-input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.user-box-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #8ab0df;
+    font-size: 12px;
+}
+
+.login-box-button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #8ab0df;
+    font-size: 14px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 30px;
+}
+
+.login-box a:hover {
+    background: #8ab0df;
+    color: #fff;
+}
+
+.login-box a span {
+    position: absolute;
+    display: block;
+}
+
+.login-box-button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8ab0df);
+    animation: btn-1 1.7s linear infinite;
+}
+
+@keyframes btn-1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.login-box-button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #8ab0df);
+    animation: btn-2 1.7s linear infinite;
+    animation-delay: 0.25s;
+}
+
+@keyframes btn-2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.login-box-button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #8ab0df);
+    animation: btn-3 1.7s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes btn-3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.login-box-button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #8ab0df);
+    animation: btn-4 1.7s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes btn-4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+@media screen and (max-width: 576px) and (min-width: 400px) {
+    .login-box {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .login-box {
+        width: 200px;
+    }
+
+    .heading-login-box {
+        font-size: 16px !important;
+    }
+
+    .user-box-input {
+        font-size: 12px;
+    }
+
+    .user-box-label {
+        font-size: 12px;
+    }
+    .login-box-button {
+        font-size: 12px;
+    }
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+.glowing {
+  position: relative;
+  min-width: 700px;
+  height: 550px;
+  margin: -150px;
+  transform-origin: right;
+  animation: colorChange 5s linear infinite;
+}
+
+.glowing:nth-child(even) {
+  transform-origin: left;
+}
+
+@keyframes colorChange {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.glowing span {
+  position: absolute;
+  top: calc(80px * var(--i));
+  left: calc(80px * var(--i));
+  bottom: calc(80px * var(--i));
+  right: calc(80px * var(--i));
+}
+
+.glowing span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 15px;
+  height: 15px;
+  background: #f00;
+  border-radius: 50%;
+}
+
+.glowing span:nth-child(3n + 1)::before {
+  background: rgba(134,255,0,1);
+  box-shadow: 0 0 20px rgba(134,255,0,1),
+    0 0 40px rgba(134,255,0,1),
+    0 0 60px rgba(134,255,0,1),
+    0 0 80px rgba(134,255,0,1),
+    0 0 0 8px rgba(134,255,0,.1);
+}
+
+.glowing span:nth-child(3n + 2)::before {
+  background: rgba(255,214,0,1);
+  box-shadow: 0 0 20px rgba(255,214,0,1),
+    0 0 40px rgba(255,214,0,1),
+    0 0 60px rgba(255,214,0,1),
+    0 0 80px rgba(255,214,0,1),
+    0 0 0 8px rgba(255,214,0,.1);
+}
+
+.glowing span:nth-child(3n + 3)::before {
+  background: rgba(0,226,255,1);
+  box-shadow: 0 0 20px rgba(0,226,255,1),
+    0 0 40px rgba(0,226,255,1),
+    0 0 60px rgba(0,226,255,1),
+    0 0 80px rgba(0,226,255,1),
+    0 0 0 8px rgba(0,226,255,.1);
+}
+
+.glowing span:nth-child(3n + 1) {
+  animation: animate 10s alternate infinite;
+}
+
+.glowing span:nth-child(3n + 2) {
+  animation: animate-reverse 3s alternate infinite;
+}
+
+.glowing span:nth-child(3n + 3) {
+  animation: animate 8s alternate infinite; 
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  
+  50% {
+    transform: rotate(180deg);
+  }
+  
+  100% {
+    transform: rotate(0deg);
+  }
+}
+</style>
+</head>
+<body class="login-page">
+    <div class="glowing">
+    
+        <span style="--i:1;"></span>
+        
+        <span style="--i:2;"></span>
+        
+        <span style="--i:3;"></span>
+        
+      </div>
+      
+      <div class="glowing">
+        
+        <span style="--i:1;"></span>
+        
+        <span style="--i:2;"></span>
+        
+        <span style="--i:3;"></span>
+        
+      </div>
+      
+      <div class="glowing">
+        
+        <span style="--i:1;"></span>
+        
+        <span style="--i:2;"></span>
+        
+        <span style="--i:3;"></span>
+        
+      </div>
+      
+      <div class="glowing">
+        
+        <span style="--i:1;"></span>
+        
+        <span style="--i:2;"></span>
+        
+        <span style="--i:3;"></span>
+        
+      </div>
+    <div class="login-box">
+    <h2 class="heading-login-box">Login</h2>
+    <form>
+      <div class="user-box">
+        <input class="user-box-input" type="text" required>
+        <label class="user-box-label">Username</label>
+      </div>
+      <div class="user-box">
+        <input class="user-box-input" type="password" required>
+        <label class="user-box-label">Password</label>
+      </div>
+      <a href="#" class="login-box-button" onclick="login()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </a>
+    </form>
+  </div>
+  <script>
+    function login() {
+      const username = document.querySelector('.user-box-input[type="text"]').value;
+      const password = document.querySelector('.user-box-input[type="password"]').value;
+
+      if (username === 'souhail' && password === 'dridi') {
+        window.location.href = 'modifier.html';
+      } else {
+        alert('Invalid username or password. Please try again.');
+      }
+    }
+  </script>
+</body>
+</html>

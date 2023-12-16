@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gestion des étudiants</title>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+      body {
+    background-color: rgb(37, 36, 36);
+  }
+  h1 {
+    color: white;
+    text-align: center;
+  }
+    .card {
+      width: 18rem;
+      margin-bottom: 20px;
+    }
+    .card-header {
+      font-weight: bold;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+    .btn-modifier {
+      color: #007bff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .btn-supprimer {
+      color: #dc3545;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    
+
+
+
+    
+  </style>
+</head>
+<body>
+  
+
+  
+  <div class="container mt-5">
+    <h1>Gestion des étudiants</h1>
+    <div class="form-group mt-4">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajouterEtudiantModal">Ajouter étudiant</button>
+      <button type="button" class="btn btn-danger" onclick="effacerListe()">Effacer liste</button>
+    </div>
+    <div class="form-group">
+      <label for="input-recherche">Rechercher par identifiant:</label>
+      <input type="text" class="form-control" id="input-recherche" placeholder="Entrez l'identifiant">
+    </div>
+    <button type="button" class="btn btn-primary mb-3" onclick="rechercherEtudiant()">Rechercher</button>
+    <div class="card-columns" id="card-etudiants">
+    </div>
+  </div>
+
+  <div class="modal fade" id="ajouterEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="ajouterEtudiantModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ajouterEtudiantModalLabel">Ajouter/Modifier un étudiant</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fermer">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="input-nom">Nom:</label>
+            <input type="text" class="form-control" id="input-nom" placeholder="Entrez le nom">
+          </div>
+          <div class="form-group">
+            <label for="input-prenom">Prénom:</label>
+            <input type="text" class="form-control" id="input-prenom" placeholder="Entrez le prénom">
+          </div>
+          <div class="form-group">
+            <label for="input-classe">Classe:</label>
+            <input type="text" class="form-control" id="input-classe" placeholder="Entrez la classe">
+          </div>
+          <div class="form-group">
+            <label for="input-id">Identifiant:</label>
+            <input type="text" class="form-control" id="input-id" placeholder="Entrez l'identifiant">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="ajouterModifierEtudiant()">Enregistrer</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="modifier.js">
+    
+  </script>
+
+
+</body>
+</html>
